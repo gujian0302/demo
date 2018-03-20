@@ -2,10 +2,10 @@
 
 <h5 style="color:red;">注意事项</h5>
 * 方法执行中不能有阻塞操作，类似于DB,HTTP同步操作，睡眠等，由于阻塞之后，线程被占用，后续的请求就会被堆积，造成线程和内存的耗尽，解决方案。<br/>
-  1. HTTP请求使用异步操作
-  2. 使用独立的线程池来处理阻塞请求，不影响主业务的执行
-  3. 关系型数据库操作必须在OIO中执行
-  4. The fork join pool based dispatcher in Akka then attempts to compensate for this blocking by adding more threads to the pool (default-akka.actor.default-dispatcher 18,19,20,...).(FORKJOIN POOL 会在阻塞时，添加线程到线程池)
+  1. HTTP请求使用异步操作<br />
+  2. 使用独立的线程池来处理阻塞请求，不影响主业务的执行<br />
+  3. 关系型数据库操作必须在OIO中执行<br />
+  4. The fork join pool based dispatcher in Akka then attempts to compensate for this blocking by adding more threads to the pool (default-akka.actor.default-dispatcher 18,19,20,...).(FORKJOIN POOL 会在阻塞时，添加线程到线程池)<br />
 
 <h3>The non-exhaustive list of adequate solutions to the <strong style="color:red;"><em>“blocking problem”</em></strong> includes the following suggestions:</h3>
 
